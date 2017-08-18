@@ -1,0 +1,32 @@
+{
+    "name": "nightlife-coordination-frontend",
+    "version": "0.1.0",
+    "description": "Front End of Nightlife Coordination App - A Free Code Camp Dymamic Web Application Project.",
+    "private": true,
+    "scripts": {
+        "start": "react-scripts start",
+        "build-old": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "build-css": "node-sass-chokidar src/sass/ -o src/css/",
+        "watch-css": "npm run build-css && node-sass-chokidar src/sass/ -o src/css/ --watch --recursive",
+        "build": "yarn run build-css && react-scripts build",
+        "dev": "npm-run-all -p watch-css start",
+        "heroku-postbuild": "yarn --production=false && yarn run build",
+        "heroku-yarn-postbuild": "yarn --production=false && yarn run build",
+        "heroku-npm-postbuild": "npm install --only=dev && npm install && npm run build"
+    },
+    "keywords": [
+        "nightlife-coordination-app",
+        "react",
+        "client-side"
+    ],
+    "repository": "https://github.com/minhkashyu/nightlife-coordination-frontend.git",
+    "author": "minhkashyu",
+    "license": "MIT",
+    "dependencies": {
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1",
+        "react-scripts": "1.0.11"
+    }
+}
