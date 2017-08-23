@@ -9,7 +9,7 @@ import rootReducer from './reducers/index';
 import { Provider } from 'react-redux';
 import { Cookies } from 'react-cookie';
 
-import './../semantic/dist/semantic.min.css';
+import './semantic/dist/semantic.min.css';
 
 const cookies = new Cookies();
 
