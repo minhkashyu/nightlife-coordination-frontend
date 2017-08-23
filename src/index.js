@@ -1,8 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import { render } from 'react-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { createStore, applyMiddleware } from 'redux';
+import reduxThunk from 'redux-thunk';
+import rootReducer from './reducers/index';
+import { Provider } from 'react-redux';
+import { Cookies } from 'react-cookie';
+
+import './../semantic/dist/semantic.min.css';
+
+const cookies = new Cookies();
+
+const store = createStore(
+    rootReducer,
+    applyMiddleware(reduxThunk.withExtraArgument(cookies))
+);
+
+render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);
+
 registerServiceWorker();
