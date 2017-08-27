@@ -1,0 +1,4 @@
+body {
+    background: #000000 url('../img/bar.jpg') no-repeat fixed center !important;
+    background-size: cover !important;
+}

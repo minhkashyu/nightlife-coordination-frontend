@@ -6,8 +6,8 @@ import {
     Switch
     } from 'react-router-dom';
 
-import Home from './components/pages/home.jsx';
-import NotFound from './components/pages/notFound.jsx';
+import Home from './components/home.jsx';
+import NotFound from './components/notFound.jsx';
 
 class App extends Component {
     render() {
