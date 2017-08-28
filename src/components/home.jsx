@@ -1,14 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Container, Header, Divider, Icon, Grid, Segment, Message } from 'semantic-ui-react';
+import { Container, Header, Divider, Icon, Grid, Message, Transition } from 'semantic-ui-react';
 import SearchInput from './template/searchInput.jsx';
 import SearchButton from './template/searchButton.jsx';
+import BarCardGroup from './template/barCardGroup.jsx';
 
 class Home extends React.Component {
+
+    renderError = () => {
+        const { errorMessage } = this.props;
+        if (errorMessage) {
+            console.dir(errorMessage);
+            return <Message error header='Error!' content={errorMessage} />;
+        }
+    };
+
     render() {
-        const { errorMessage, bars } = this.props;
+        const { bars } = this.props;
         return (
-            <Container style={{ marginTop: '3em' }}>
+            <Container style={{ marginTop: '3em', marginBottom: '3em' }}>
                 <Header as='h1' textAlign='center' color='teal'>Nightlife Coordination App</Header>
                 <Header as='h4' textAlign='center' inverted color='grey'>A Freecodecamp Full-Statck Project using React/Redux, Semantic UI with Google Material theme, Express, Passport and MongoDB</Header>
                 <Divider section horizontal inverted>
@@ -29,16 +39,22 @@ class Home extends React.Component {
                 <Grid>
                     <Grid.Column width={12}>
                         <SearchInput />
-                        { errorMessage && <Message error header='Error!' content={errorMessage} /> }
+                        {this.renderError()}
                     </Grid.Column>
                     <Grid.Column width={4}>
                         <SearchButton />
                     </Grid.Column>
                 </Grid>
-                { bars &&
-                    <Segment color='teal'>
-                        <Header as='h5' textAlign='center'>Bars</Header>
-                    </Segment>
+                { bars.length > 0 &&
+                    <Transition animation='fade' duration={500}>
+                        <Container style={{ marginTop: '2em' }}>
+                            <Header as='h5' icon textAlign='center' color='teal'>
+                                <Icon name='bar' circular inverted color='teal' />
+                                <Header.Content>Bars</Header.Content>
+                            </Header>
+                            <BarCardGroup bars={bars} />
+                        </Container>
+                    </Transition>
                 }
             </Container>
         );

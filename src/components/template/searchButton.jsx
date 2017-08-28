@@ -8,6 +8,7 @@ class SearchButton extends Component {
     handleClick = (e) => {
         const { fetchBars, query } = this.props;
         e.preventDefault();
+        e.target.blur();
         fetchBars(query);
     };
 
@@ -20,10 +21,10 @@ class SearchButton extends Component {
             onClick={this.handleClick}
             >
                 <Button.Content visible>
-                    <Icon name='bar' /> Search
+                    <Icon name='search' /> Search
                 </Button.Content>
                 <Button.Content hidden>
-                    <Icon color='teal' name='right arrow' />
+                    <Icon color='teal' name='bar' />
                 </Button.Content>
             </Button>
         );

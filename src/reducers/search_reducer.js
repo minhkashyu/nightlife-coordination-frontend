@@ -23,7 +23,7 @@ const searchReducer = (state = INITIAL_STATE, action) => {
         case SELECT_RESULT:
             return {...state, query: action.payload.query, error: ''};
         case FETCH_BARS:
-            return {...state, bars: action.payload, error: ''};
+            return {...state, bars: action.payload.bars, error: ''};
         case SEARCH_ERROR:
             return {...state, error: action.payload};
     }
