@@ -1,10 +1,12 @@
 import React from 'react';
-//import { connect } from 'react-redux';
-import { Container, Header, Divider, Icon, Segment } from 'semantic-ui-react';
-import SearchForm from './template/searchForm.jsx';
+import { connect } from 'react-redux';
+import { Container, Header, Divider, Icon, Grid, Segment, Message } from 'semantic-ui-react';
+import SearchInput from './template/searchInput.jsx';
+import SearchButton from './template/searchButton.jsx';
 
 class Home extends React.Component {
     render() {
+        const { errorMessage, bars } = this.props;
         return (
             <Container style={{ marginTop: '3em' }}>
                 <Header as='h1' textAlign='center' color='teal'>Nightlife Coordination App</Header>
@@ -24,13 +26,30 @@ class Home extends React.Component {
                     </Icon.Group>
                 </Divider>
                 <Header as='h4' textAlign='center' color='teal'>Find a bar - Take a cab - Drink responsibly</Header>
-                <SearchForm />
-                <Segment color='teal'>
-                    <Header as='h5' textAlign='center'>Bars</Header>
-                </Segment>
+                <Grid>
+                    <Grid.Column width={12}>
+                        <SearchInput />
+                        { errorMessage && <Message error header='Error!' content={errorMessage} /> }
+                    </Grid.Column>
+                    <Grid.Column width={4}>
+                        <SearchButton />
+                    </Grid.Column>
+                </Grid>
+                { bars &&
+                    <Segment color='teal'>
+                        <Header as='h5' textAlign='center'>Bars</Header>
+                    </Segment>
+                }
             </Container>
         );
     }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+    return {
+        errorMessage: state.search.error,
+        bars: state.search.bars
+    };
+};
+
+export default connect(mapStateToProps)(Home);

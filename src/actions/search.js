@@ -46,19 +46,18 @@ export const loadGooglePlacesAutocomplete = (value) => {
     };
 };
 
-export const selectResult = (placeId) => {
+export const selectResult = (query) => {
     return dispatch => {
         dispatch({
             type: SELECT_RESULT,
-            payload: { placeId }
+            payload: { query }
         });
     };
 };
 
-export const fetchBars = (placeId) => {
+export const fetchBars = (query) => {
     return (dispatch, getState, cookies) => {
-        console.dir(placeId);
-        let url = `/places/${placeId}`;
+        let url = `/places/${query}`;
         getRequest(FETCH_BARS, SEARCH_ERROR, false, false, url, dispatch, cookies);
     };
 };

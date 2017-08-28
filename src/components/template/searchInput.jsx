@@ -3,7 +3,7 @@ import { Search } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { resetResults, selectResult, loadGooglePlacesAutocomplete } from './../../actions/search';
 
-class searchField extends Component {
+class SearchInput extends Component {
     componentWillMount() {
         this.resetComponent();
     }
@@ -21,9 +21,8 @@ class searchField extends Component {
     handleSearchChange = (e, { value }) => {
         this.setState({ componentValue: value });
         if (value.length < 1) return this.resetComponent();
-        setTimeout(() => {
-            this.props.loadGooglePlacesAutocomplete(value);
-        }, 500);
+        this.props.selectResult(value);
+        this.props.loadGooglePlacesAutocomplete(value);
     };
 
     render() {
@@ -47,9 +46,8 @@ class searchField extends Component {
 const mapStateToProps = (state) => {
     return {
         isFetching: state.common.isFetching,
-        errorMessage: state.search.error,
         results: state.search.results
     };
 };
 
-export default connect(mapStateToProps, { resetResults, selectResult, loadGooglePlacesAutocomplete })(searchField);
+export default connect(mapStateToProps, { resetResults, selectResult, loadGooglePlacesAutocomplete })(SearchInput);

@@ -8,7 +8,8 @@ import {
 
 const INITIAL_STATE = {
     results: [],
-    placeId: '',
+    query: '',
+    bars: [],
     error: ''
 };
 
@@ -18,9 +19,9 @@ const searchReducer = (state = INITIAL_STATE, action) => {
         case RECEIVE_RESULTS:
             return {...state, results: action.payload.results, error: ''};
         case RESET_RESULTS:
-            return {...state, results: [], error: ''};
+            return {...state, results: [], query: '', error: ''};
         case SELECT_RESULT:
-            return {...state, placeId: action.payload.placeId, error: ''};
+            return {...state, query: action.payload.query, error: ''};
         case FETCH_BARS:
             return {...state, bars: action.payload, error: ''};
         case SEARCH_ERROR:
