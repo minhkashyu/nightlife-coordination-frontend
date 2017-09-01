@@ -2,3 +2,9 @@ body {
     background: #000000 url('../img/bar.jpg') no-repeat fixed center !important;
     background-size: cover !important;
 }
+
+.ui.card > .image,
+.ui.cards > .card > .image {
+    max-height: 300px !important;
+    overflow: hidden; !important;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Header, Divider, Icon, Grid, Message, Transition } from 'semantic-ui-react';
+
+import SiteMenu from './template/siteMenu.jsx';
 import SearchInput from './template/searchInput.jsx';
 import SearchButton from './template/searchButton.jsx';
 import BarCardGroup from './template/barCardGroup.jsx';
@@ -19,6 +21,7 @@ class Home extends React.Component {
         const { bars } = this.props;
         return (
             <Container style={{ marginTop: '3em', marginBottom: '3em' }}>
+                <SiteMenu />
                 <Header as='h1' textAlign='center' color='teal'>Nightlife Coordination App</Header>
                 <Header as='h4' textAlign='center' inverted color='grey'>A Freecodecamp Full-Statck Project using React/Redux, Semantic UI with Google Material theme, Express, Passport and MongoDB</Header>
                 <Divider section horizontal inverted>

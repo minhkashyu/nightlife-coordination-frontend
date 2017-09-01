@@ -8,6 +8,7 @@ import {
 
 import Home from './components/home.jsx';
 import NotFound from './components/notFound.jsx';
+import LoginSuccess from './components/loginSuccess.jsx';
 
 class App extends Component {
     render() {
@@ -17,6 +18,7 @@ class App extends Component {
                     <div className="App">
                         <Switch>
                             <Route exact path="/" component={Home} />
+                            <Route path="/login-success/:media/:jwt" component={LoginSuccess} />
                             <Route component={NotFound} />
                         </Switch>
                     </div>

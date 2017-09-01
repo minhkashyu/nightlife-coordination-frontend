@@ -7,6 +7,13 @@ export const FETCHING = 'fetching',
     NOT_REDIRECT = 'not_redirect';
 
 //= =====================
+// Auth Actions
+//= =====================
+export const AUTH_USER = 'auth_user',
+    UNAUTH_USER = 'unauth_user',
+    AUTH_ERROR = 'auth_error';
+
+//= =====================
 // Search Actions
 //= =====================
 export const RECEIVE_RESULTS = 'receive_results',

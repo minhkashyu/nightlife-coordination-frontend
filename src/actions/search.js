@@ -2,7 +2,6 @@ import {
     errorHandler,
     getRequest
     } from './index';
-
 import {
     FETCHING,
     NOT_FETCHING,
