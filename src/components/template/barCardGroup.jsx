@@ -13,7 +13,7 @@ class BarCardGroup extends Component {
         return (
             <Card.Group itemsPerRow='3' doubling >
                 {this.props.bars.map((bar, index) =>
-                    <BarCard key={index} bar={bar} />
+                    <BarCard key={index} bar={bar} {...this.props} />
                 )}
             </Card.Group>
         );

@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import { Search } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import { resetResults, selectResult, loadGooglePlacesAutocomplete } from './../../actions/search';
+import { PropTypes } from 'prop-types';
 
 class SearchInput extends Component {
+    static propTypes = {
+        resetResults: PropTypes.func.isRequired,
+        selectResult: PropTypes.func.isRequired,
+        loadGooglePlacesAutocomplete: PropTypes.func.isRequired,
+        isFetching: PropTypes.bool.isRequired,
+        results: PropTypes.array.isRequired
+    };
+
     componentWillMount() {
         this.resetComponent();
     }
@@ -43,11 +50,4 @@ class SearchInput extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        isFetching: state.common.isFetching,
-        results: state.search.results
-    };
-};
-
-export default connect(mapStateToProps, { resetResults, selectResult, loadGooglePlacesAutocomplete })(SearchInput);
+export default SearchInput;

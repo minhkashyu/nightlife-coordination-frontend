@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Header, Divider, Icon, Grid, Message, Transition } from 'semantic-ui-react';
 
+import { resetResults, selectResult, loadGooglePlacesAutocomplete, fetchBars } from './../actions/search';
 import SearchInput from './template/searchInput.jsx';
 import SearchButton from './template/searchButton.jsx';
 import BarCardGroup from './template/barCardGroup.jsx';
@@ -11,7 +12,6 @@ class Home extends React.Component {
     renderError = () => {
         const { errorMessage } = this.props;
         if (errorMessage) {
-            console.dir(errorMessage);
             return <Message error header='Error!' content={errorMessage} />;
         }
     };
@@ -39,11 +39,11 @@ class Home extends React.Component {
                 <Header as='h4' textAlign='center' color='teal'>Find a bar - Take a cab - Drink responsibly</Header>
                 <Grid>
                     <Grid.Column width={12}>
-                        <SearchInput />
+                        <SearchInput {...this.props} />
                         {this.renderError()}
                     </Grid.Column>
                     <Grid.Column width={4}>
-                        <SearchButton />
+                        <SearchButton {...this.props} />
                     </Grid.Column>
                 </Grid>
                 { bars.length > 0 &&
@@ -53,7 +53,7 @@ class Home extends React.Component {
                                 <Icon name='bar' circular inverted color='teal' />
                                 <Header.Content>Bars</Header.Content>
                             </Header>
-                            <BarCardGroup bars={bars} />
+                            <BarCardGroup {...this.props} />
                         </Container>
                     </Transition>
                 }
@@ -65,8 +65,12 @@ class Home extends React.Component {
 const mapStateToProps = (state) => {
     return {
         errorMessage: state.search.error,
-        bars: state.search.bars
+        query: state.search.query,
+        results: state.search.results,
+        bars: state.search.bars,
+        isFetching: state.common.isFetching,
+        isAuthenticated: state.auth.isAuthenticated
     };
 };
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, { resetResults, selectResult, loadGooglePlacesAutocomplete, fetchBars })(Home);

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Card, Label, Image, Button, Icon, Menu } from 'semantic-ui-react';
 import { PropTypes } from 'prop-types';
 
 class BarCard extends Component {
     static propTypes = {
-        bar: PropTypes.object.isRequired
+        bar: PropTypes.object.isRequired,
+        isFetching: PropTypes.bool.isRequired,
+        isAuthenticated: PropTypes.bool.isRequired
     };
 
     renderImage = (bar) => {
@@ -69,11 +70,4 @@ class BarCard extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        isFetching: state.search.isFetching,
-        isAuthenticated: state.auth.isAuthenticated
-    };
-};
-
-export default connect(mapStateToProps)(BarCard);
+export default BarCard;

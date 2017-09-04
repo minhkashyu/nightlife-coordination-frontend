@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Button, Icon } from 'semantic-ui-react';
-import { fetchBars } from './../../actions/search';
+import { PropTypes } from 'prop-types';
 
 class SearchButton extends Component {
+    static propTypes = {
+        isFetching: PropTypes.bool.isRequired,
+        query: PropTypes.string.isRequired,
+        fetchBars: PropTypes.func.isRequired
+    };
 
     handleClick = (e) => {
         const { fetchBars, query } = this.props;
@@ -31,11 +35,5 @@ class SearchButton extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        isFetching: state.common.isFetching,
-        query: state.search.query
-    };
-};
 
-export default connect(mapStateToProps, { fetchBars })(SearchButton);
+export default SearchButton;
