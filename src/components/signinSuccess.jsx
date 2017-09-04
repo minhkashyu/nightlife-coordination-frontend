@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import SiteLoader from './template/siteLoader.jsx';
 import { loginSuccess } from './../actions/auth';
 
-class LoginSuccess extends React.Component {
+class SigninSuccess extends React.Component {
 
     componentDidMount() {
         const { match, loginSuccess } = this.props;
@@ -56,4 +56,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { loginSuccess })(LoginSuccess);
+export default connect(mapStateToProps, { loginSuccess })(SigninSuccess);

@@ -6,9 +6,12 @@ import {
     Switch
     } from 'react-router-dom';
 
+import SiteMenu from './components/template/siteMenu.jsx';
+
 import Home from './components/home.jsx';
 import NotFound from './components/notFound.jsx';
-import LoginSuccess from './components/loginSuccess.jsx';
+import SigninSuccess from './components/signinSuccess.jsx';
+import Signout from './components/signout.jsx';
 
 class App extends Component {
     render() {
@@ -16,9 +19,11 @@ class App extends Component {
             <CookiesProvider>
                 <Router>
                     <div className="App">
+                        <SiteMenu />
                         <Switch>
                             <Route exact path="/" component={Home} />
-                            <Route path="/login-success/:media/:jwt" component={LoginSuccess} />
+                            <Route path="/login-success/:media/:jwt" component={SigninSuccess} />
+                            <Route path="/logout" component={Signout} />
                             <Route component={NotFound} />
                         </Switch>
                     </div>

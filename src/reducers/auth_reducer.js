@@ -19,7 +19,7 @@ const authReducer = (state = INITIAL_STATE, action) => {
         case AUTH_ERROR:
             return {...state, error: action.payload};
     }
-    return false;
+    return state;
 };
 
 export default authReducer;

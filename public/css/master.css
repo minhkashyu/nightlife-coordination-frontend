@@ -8,3 +8,21 @@ body {
     max-height: 300px !important;
     overflow: hidden; !important;
 }
+
+.ui.secondary.pointing.menu {
+    border-bottom: 0 none !important;
+}
+
+.ui.menu .item {
+    color: rgba(255,255,255,.5) !important;
+}
+
+.ui.menu:not(.vertical) .right.item,
+.ui.menu:not(.vertical) .right.menu {
+    border-bottom: 2px solid rgba(255,255,255,.5) !important;
+}
+
+.ui.secondary.pointing.menu .active.item {
+    border-color: white !important;
+    color: white !important;
+}

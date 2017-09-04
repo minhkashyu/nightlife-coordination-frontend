@@ -63,3 +63,13 @@ export const loginSuccess = (media, jwt) => {
             });
     };
 };
+
+export const logout = () => {
+    return (dispatch, getState, cookies) => {
+        cookies.remove('token', { path: '/'});
+        cookies.remove('user', { path: '/'});
+        dispatch({
+            type: UNAUTH_USER
+        });
+    };
+};
