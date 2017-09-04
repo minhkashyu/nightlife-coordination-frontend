@@ -5,24 +5,46 @@ body {
 
 .ui.card > .image,
 .ui.cards > .card > .image {
-    max-height: 300px !important;
-    overflow: hidden; !important;
+    position: relative !important;
+    width: 100% !important;
+    display: inline-block !important;
+    overflow: hidden !important;
+}
+
+.ui.card > .image:after,
+.ui.cards > .card > .image:after {
+    padding-top: 75% !important; /* 4:3 ratio */
+    display: block !important;
+    content: '' !important;
+}
+
+.ui.card > .image > img,
+.ui.cards > .card > .image > img {
+    display: block !important;
+    position: absolute !important;
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .ui.secondary.pointing.menu {
     border-bottom: 0 none !important;
 }
 
-.ui.menu .item {
+.ui.secondary.pointing.menu .item {
     color: rgba(255,255,255,.5) !important;
-}
-
-.ui.menu:not(.vertical) .right.item,
-.ui.menu:not(.vertical) .right.menu {
-    border-bottom: 2px solid rgba(255,255,255,.5) !important;
 }
 
 .ui.secondary.pointing.menu .active.item {
     border-color: white !important;
     color: white !important;
+}
+
+.ui.menu:not(.vertical) .right.item,
+.ui.menu:not(.vertical) .right.menu {
+    border-bottom: 2px solid rgba(255,255,255,.5) !important;
 }

@@ -71,7 +71,8 @@ class BarCard extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isFetching: state.search.isFetching
+        isFetching: state.search.isFetching,
+        isAuthenticated: state.auth.isAuthenticated
     };
 };
 
