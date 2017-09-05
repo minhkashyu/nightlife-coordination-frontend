@@ -1,6 +1,8 @@
 import {
     errorHandler,
-    getRequest
+    getRequest,
+    postRequest,
+    deleteRequest
     } from './index';
 import {
     FETCHING,
@@ -9,6 +11,10 @@ import {
     RESET_RESULTS,
     SELECT_RESULT,
     FETCH_BARS,
+    FETCH_MY_BARS,
+    FETCH_GOING_BARS,
+    ADD_BAR,
+    REMOVE_BAR,
     SEARCH_ERROR
     } from './types';
 import _ from 'lodash';
@@ -54,9 +60,37 @@ export const selectResult = (query) => {
     };
 };
 
-export const fetchBars = (query) => {
+export const fetchBars = (query, isAuthenticated) => {
     return (dispatch, getState, cookies) => {
-        let url = `/places/${query}`;
-        getRequest(FETCH_BARS, SEARCH_ERROR, false, false, url, dispatch, cookies);
+        let url = isAuthenticated ? `/places/loggedin/${query}` : `/places/${query}`;
+        getRequest(FETCH_BARS, SEARCH_ERROR, isAuthenticated, false, url, dispatch, cookies);
+    };
+};
+
+export const fetchMyBars = () => {
+    return (dispatch, getState, cookies) => {
+        let url = '/bars';
+        getRequest(FETCH_MY_BARS, SEARCH_ERROR, true, true, url, dispatch, cookies);
+    };
+};
+
+export const fetchGoingBars = () => {
+    return (dispatch, getState, cookies) => {
+        let url = '/bars/going';
+        getRequest(FETCH_GOING_BARS, SEARCH_ERROR, true, false, url, dispatch, cookies);
+    };
+};
+
+export const addBar = (placeId) => {
+    return (dispatch, getState, cookies) => {
+        let url = '/bars';
+        postRequest(ADD_BAR, SEARCH_ERROR, true, false, url, dispatch, cookies, { 'placeId': placeId });
+    };
+};
+
+export const removeBar = (barId) => {
+    return (dispatch, getState, cookies) => {
+        let url = `/bars/${barId}`;
+        deleteRequest(REMOVE_BAR, SEARCH_ERROR, true, false, url, dispatch, cookies);
     };
 };

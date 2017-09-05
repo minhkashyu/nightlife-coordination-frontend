@@ -5,15 +5,16 @@ import { PropTypes } from 'prop-types';
 class SearchButton extends Component {
     static propTypes = {
         isFetching: PropTypes.bool.isRequired,
+        isAuthenticated: PropTypes.bool.isRequired,
         query: PropTypes.string.isRequired,
         fetchBars: PropTypes.func.isRequired
     };
 
     handleClick = (e) => {
-        const { fetchBars, query } = this.props;
+        const { fetchBars, query, isAuthenticated } = this.props;
         e.preventDefault();
         e.target.blur();
-        fetchBars(query);
+        fetchBars(query, isAuthenticated);
     };
 
     render() {

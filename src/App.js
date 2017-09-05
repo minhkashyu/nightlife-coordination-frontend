@@ -7,6 +7,7 @@ import {
     } from 'react-router-dom';
 
 import SiteMenu from './components/template/siteMenu.jsx';
+import SiteFooter from './components/template/siteFooter.jsx';
 
 import Home from './components/home.jsx';
 import NotFound from './components/notFound.jsx';
@@ -26,6 +27,7 @@ class App extends Component {
                             <Route path="/logout" component={Signout} />
                             <Route component={NotFound} />
                         </Switch>
+                        <SiteFooter />
                     </div>
                 </Router>
             </CookiesProvider>

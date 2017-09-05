@@ -32,8 +32,8 @@ class SiteMenu extends React.Component {
         const { activeItem } = this.state;
         const { isAuthenticated } = this.props;
         return (
-            <Container>
-                <Menu pointing secondary>
+            <Container className="site-menu">
+                <Menu pointing secondary stackable>
                     <Menu.Menu position='right'>
                         <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>
                             <Icon name='home' size='large' />

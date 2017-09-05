@@ -3,11 +3,16 @@ body {
     background-size: cover !important;
 }
 
+.main-wrapper {
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
 .ui.card > .image,
 .ui.cards > .card > .image {
     position: relative !important;
     width: 100% !important;
-    display: inline-block !important;
+    display: block !important;
     overflow: hidden !important;
 }
 
@@ -47,4 +52,19 @@ body {
 .ui.menu:not(.vertical) .right.item,
 .ui.menu:not(.vertical) .right.menu {
     border-bottom: 2px solid rgba(255,255,255,.5) !important;
+}
+
+.site-footer {
+    /*position: fixed;*/
+    /*right: 0;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
+    /*z-index: 999;*/
+    /*padding-top: 1em;*/
+    /*padding-bottom: 1em;*/
+}
+
+.site-footer p {
+    color: white;
+    text-align: center;
 }

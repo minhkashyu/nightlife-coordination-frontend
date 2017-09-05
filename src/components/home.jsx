@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Header, Divider, Icon, Grid, Message, Transition } from 'semantic-ui-react';
 
-import { resetResults, selectResult, loadGooglePlacesAutocomplete, fetchBars } from './../actions/search';
+import { resetResults, selectResult, loadGooglePlacesAutocomplete, fetchBars, addBar, removeBar } from './../actions/search';
+import { loginGithub } from './../actions/auth';
 import SearchInput from './template/searchInput.jsx';
 import SearchButton from './template/searchButton.jsx';
 import BarCardGroup from './template/barCardGroup.jsx';
@@ -19,7 +20,7 @@ class Home extends React.Component {
     render() {
         const { bars } = this.props;
         return (
-            <Container style={{ marginTop: '3em', marginBottom: '3em' }}>
+            <Container className='main-wrapper'>
                 <Header as='h1' textAlign='center' color='teal'>Nightlife Coordination App</Header>
                 <Header as='h4' textAlign='center' inverted color='grey'>A Freecodecamp Full-Statck Project using React/Redux, Semantic UI with Google Material theme, Express, Passport and MongoDB</Header>
                 <Divider section horizontal inverted>
@@ -68,9 +69,11 @@ const mapStateToProps = (state) => {
         query: state.search.query,
         results: state.search.results,
         bars: state.search.bars,
+        goingBars: state.search.goingBars,
+        goingTotals: state.search.goingTotals,
         isFetching: state.common.isFetching,
         isAuthenticated: state.auth.isAuthenticated
     };
 };
 
-export default connect(mapStateToProps, { resetResults, selectResult, loadGooglePlacesAutocomplete, fetchBars })(Home);
+export default connect(mapStateToProps, { resetResults, selectResult, loadGooglePlacesAutocomplete, fetchBars, addBar, removeBar, loginGithub })(Home);

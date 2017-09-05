@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {
     API_URL,
-    errorHandler,
-    getRequest
+    errorHandler
+    //getRequest
     } from './index';
 
 import {
