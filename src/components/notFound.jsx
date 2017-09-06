@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class NotFound extends React.Component {
     render() {
         return (
-            <Container>
+            <Container className='main-wrapper'>
                 <Header as='h1' textAlign='center'>404</Header>
                 <Header as='h3' textAlign='center' dividing>Page not found!</Header>
                 <Segment>

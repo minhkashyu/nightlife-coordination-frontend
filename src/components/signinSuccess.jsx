@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
 
 import SiteLoader from './template/siteLoader.jsx';
 import { loginSuccess } from './../actions/auth';
@@ -39,11 +40,11 @@ class SigninSuccess extends React.Component {
             );
         }
         return (
-            <div>
+            <Container className='main-wrapper'>
                 <p className="text-center">You are being redirected...</p>
                 {this.renderError()}
                 {this.renderLoader()}
-            </div>
+            </Container>
         );
     }
 }

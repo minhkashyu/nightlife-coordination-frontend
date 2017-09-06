@@ -11,7 +11,7 @@ class BarCardGroup extends Component {
 
     render() {
         return (
-            <Card.Group itemsPerRow='3' doubling >
+            <Card.Group itemsPerRow='3' >
                 {this.props.bars.map((bar, index) =>
                     <BarCard key={index} bar={bar} {...this.props} />
                 )}

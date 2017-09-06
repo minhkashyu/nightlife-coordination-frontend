@@ -5,7 +5,7 @@ class SiteFooter extends React.Component {
     render() {
         var dtDate = new Date();
         return (
-            <Container className="site-footer">
+            <Container fluid className="site-footer">
                 <p>Copyright &copy; { dtDate.getFullYear() } <a href="http://minhta.com.au" title="Home">Minh Ta</a>. All Rights Reserved.</p>
             </Container>
         );

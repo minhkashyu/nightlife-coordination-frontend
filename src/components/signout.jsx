@@ -1,18 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Container, Confirm } from 'semantic-ui-react';
 
 import SiteLoader from './template/siteLoader.jsx';
 import { logout } from './../actions/auth';
 
-class Signout extends React.Component {
+class SignOut extends React.Component {
 
-    componentDidMount() {
+    state = { open: true };
+
+    handleConfirm = () => {
+        this.setState({ open: false });
         this.props.logout();
-    }
+    };
+    handleCancel = () => this.setState({ open: false });
 
     render() {
-        if (!this.props.isAuthenticated) {
+        if (!this.state.open || !this.props.isAuthenticated) {
             return (
                 <Redirect to={{
                     pathname: '/',
@@ -21,10 +26,17 @@ class Signout extends React.Component {
             );
         }
         return (
-            <div>
-                <p className="text-center">You are being redirected...</p>
+            <Container className='main-wrapper'>
                 <SiteLoader />
-            </div>
+                <Confirm
+                    open={this.state.open}
+                    content='Are you sure you want to sign out of your account?'
+                    cancelButton='Cancel'
+                    confirmButton="Sign out now"
+                    onCancel={this.handleCancel}
+                    onConfirm={this.handleConfirm}
+                />
+            </Container>
         );
     }
 }
@@ -35,4 +47,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, { logout })(Signout);
+export default connect(mapStateToProps, { logout })(SignOut);

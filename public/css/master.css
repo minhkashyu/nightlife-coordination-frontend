@@ -5,7 +5,20 @@ body {
 
 .main-wrapper {
     padding-top: 3em;
-    padding-bottom: 3em;
+    padding-bottom: 5em;
+}
+
+.ui.centered.inline.loader.active {
+    margin-top: 3em;
+    margin-bottom: 3em;
+    color: white;
+}
+
+p.msg-text {
+    font-width: bold;
+    font-size: 20px;
+    color: white;
+    text-align: center;
 }
 
 .ui.card > .image,
@@ -55,13 +68,14 @@ body {
 }
 
 .site-footer {
-    /*position: fixed;*/
-    /*right: 0;*/
-    /*left: 0;*/
-    /*bottom: 0;*/
-    /*z-index: 999;*/
-    /*padding-top: 1em;*/
-    /*padding-bottom: 1em;*/
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: rgba(50, 50, 50, .8);
 }
 
 .site-footer p {
