@@ -11,8 +11,10 @@ import SiteFooter from './components/template/siteFooter.jsx';
 
 import Home from './components/home.jsx';
 import NotFound from './components/notFound.jsx';
+import SignIn from './components/signin.jsx';
 import SigninSuccess from './components/signinSuccess.jsx';
-import Signout from './components/signout.jsx';
+import SignOut from './components/signout.jsx';
+import ActivityLog from './components/activityLog.jsx';
 
 class App extends Component {
     render() {
@@ -23,8 +25,10 @@ class App extends Component {
                         <SiteMenu />
                         <Switch>
                             <Route exact path="/" component={Home} />
+                            <Route path="/activity-log" component={ActivityLog} />
+                            <Route path="/login" component={SignIn} />
                             <Route path="/login-success/:media/:jwt" component={SigninSuccess} />
-                            <Route path="/logout" component={Signout} />
+                            <Route path="/logout" component={SignOut} />
                             <Route component={NotFound} />
                         </Switch>
                         <SiteFooter />
