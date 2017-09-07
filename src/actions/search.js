@@ -12,7 +12,6 @@ import {
     SELECT_RESULT,
     FETCH_BARS,
     FETCH_MY_BARS,
-    FETCH_GOING_BARS,
     ADD_BAR,
     REMOVE_BAR,
     SEARCH_ERROR
@@ -70,21 +69,19 @@ export const fetchBars = (query, isAuthenticated) => {
 export const fetchMyBars = () => {
     return (dispatch, getState, cookies) => {
         let url = '/bars';
-        getRequest(FETCH_MY_BARS, SEARCH_ERROR, true, true, url, dispatch, cookies);
+        getRequest(FETCH_MY_BARS, SEARCH_ERROR, true, false, url, dispatch, cookies);
     };
 };
 
-export const fetchGoingBars = () => {
-    return (dispatch, getState, cookies) => {
-        let url = '/bars/going';
-        getRequest(FETCH_GOING_BARS, SEARCH_ERROR, true, false, url, dispatch, cookies);
-    };
-};
-
-export const addBar = (placeId) => {
+export const addBar = (placeId, name, address) => {
     return (dispatch, getState, cookies) => {
         let url = '/bars';
-        postRequest(ADD_BAR, SEARCH_ERROR, true, false, url, dispatch, cookies, { 'placeId': placeId });
+        let data = {
+            placeId,
+            name,
+            address
+        };
+        postRequest(ADD_BAR, SEARCH_ERROR, true, false, url, dispatch, cookies, data);
     };
 };
 

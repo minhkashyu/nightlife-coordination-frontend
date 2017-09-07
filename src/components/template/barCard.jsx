@@ -39,7 +39,6 @@ class BarCard extends Component {
     };
 
     handleClick = (e, goingBar) => {
-        console.log(goingBar);
         const { isAuthenticated, bar, loginGithub, addBar, removeBar } = this.props;
         if (!isAuthenticated) {
             e.target.blur();
@@ -52,7 +51,7 @@ class BarCard extends Component {
             }
             else {
                 e.target.blur();
-                addBar(bar['place_id']);
+                addBar(bar['place_id'], bar.name, bar['formatted_address']);
             }
         }
     };
