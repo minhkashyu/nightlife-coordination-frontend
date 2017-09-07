@@ -1,3 +1,94 @@
 /*******************************
          Site Overrides
 *******************************/
+body {
+  background: #000000 url('/img/bar.jpg') no-repeat fixed center;
+  background-size: cover;
+}
+
+.main-wrapper {
+  padding-top: 3em;
+  padding-bottom: 5em;
+}
+
+.ui.centered.inline.loader.active {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  color: white;
+}
+
+p.msg-text {
+  font-width: bold;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+
+.ui.card > .image,
+.ui.cards > .card > .image {
+  position: relative;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.ui.card > .image:after,
+.ui.cards > .card > .image:after {
+  padding-top: 75%; /* 4:3 ratio */
+  display: block;
+  content: '';
+}
+
+.ui.card > .image > img,
+.ui.cards > .card > .image > img {
+  display: block;
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  width: auto;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ui.secondary.pointing.menu {
+  border-bottom: 0 none !important;
+
+  .item {
+    color: rgba(255,255,255,.5) !important;
+  }
+  .active.item {
+    border-color: white !important;
+    color: white !important;
+  }
+}
+
+.ui.menu:not(.vertical) .right.item,
+.ui.menu:not(.vertical) .right.menu {
+  border-bottom: 2px solid rgba(255,255,255,.5);
+}
+
+.site-footer {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: rgba(50, 50, 50, .8);
+
+  p {
+    color: white;
+    text-align: center;
+
+    a {
+      color: @teal;
+
+      &:hover {
+        color: @lightTeal;
+      }
+    }
+  }
+}

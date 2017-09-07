@@ -79,8 +79,8 @@
 @coloredBoxShadow       : 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 
 /* Primary */
-@primaryColor       : #4184F3;
-@primaryBoxShadow   : 0px 0px 0px 1px #0157E4 inset;
+@primaryColor       : @lightTeal;
+@primaryBoxShadow   : 0px 0px 0px 1px @teal inset;
 
 /* Secondary */
 @secondaryColor           : #EEEEEE;

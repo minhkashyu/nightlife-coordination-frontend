@@ -14,8 +14,7 @@
 .env
 .env.local
 .env.production
-
-/src/semantic
+notes.txt
 
 npm-debug.log*
 yarn-debug.log*

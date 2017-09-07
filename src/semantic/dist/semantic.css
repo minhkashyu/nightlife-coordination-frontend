@@ -759,6 +759,101 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 /*******************************
          Site Overrides
 *******************************/
+
+body {
+  background: #000000 url('/img/bar.jpg') no-repeat fixed center;
+  background-size: cover;
+}
+
+.main-wrapper {
+  padding-top: 3em;
+  padding-bottom: 5em;
+}
+
+.ui.centered.inline.loader.active {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  color: white;
+}
+
+p.msg-text {
+  font-width: bold;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+
+.ui.card > .image,
+.ui.cards > .card > .image {
+  position: relative;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.ui.card > .image:after,
+.ui.cards > .card > .image:after {
+  padding-top: 75%;
+  /* 4:3 ratio */
+  display: block;
+  content: '';
+}
+
+.ui.card > .image > img,
+.ui.cards > .card > .image > img {
+  display: block;
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  width: auto;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.ui.secondary.pointing.menu {
+  border-bottom: 0 none !important;
+}
+
+.ui.secondary.pointing.menu .item {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.ui.secondary.pointing.menu .active.item {
+  border-color: white !important;
+  color: white !important;
+}
+
+.ui.menu:not(.vertical) .right.item,
+.ui.menu:not(.vertical) .right.menu {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.site-footer {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: rgba(50, 50, 50, 0.8);
+}
+
+.site-footer p {
+  color: white;
+  text-align: center;
+}
+
+.site-footer p a {
+  color: #1de9b6;
+}
+
+.site-footer p a:hover {
+  color: #1DE9B6;
+}
 /*!
  * # Semantic UI 2.2.13 - Button
  * http://github.com/semantic-org/semantic-ui/
@@ -4525,7 +4620,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.primary.buttons .button,
 .ui.primary.button {
-  background-color: #4184F3;
+  background-color: #1DE9B6;
   color: #FFFFFF;
   text-shadow: none;
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
@@ -4540,21 +4635,21 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
-  background-color: #1f72fc;
+  background-color: #0be1ac;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 .ui.primary.buttons .button:focus,
 .ui.primary.button:focus {
-  background-color: #0c68ff;
+  background-color: #01dca5;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background-color: #1165f0;
+  background-color: #13c095;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -4563,7 +4658,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 .ui.primary.buttons .active.button:active,
 .ui.primary.active.button,
 .ui.primary.button .active.button:active {
-  background-color: #1b71ff;
+  background-color: #06e6ae;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -4572,40 +4667,40 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.basic.primary.buttons .button,
 .ui.basic.primary.button {
-  -webkit-box-shadow: 0px 0px 0px 0px #4184F3 inset !important;
-  box-shadow: 0px 0px 0px 0px #4184F3 inset !important;
-  color: #4184F3 !important;
+  -webkit-box-shadow: 0px 0px 0px 0px #1DE9B6 inset !important;
+  box-shadow: 0px 0px 0px 0px #1DE9B6 inset !important;
+  color: #1DE9B6 !important;
 }
 
 .ui.basic.primary.buttons .button:hover,
 .ui.basic.primary.button:hover {
   background: transparent !important;
-  -webkit-box-shadow: 0px 0px 0px 1px #1f72fc inset !important;
-  box-shadow: 0px 0px 0px 1px #1f72fc inset !important;
-  color: #1f72fc !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #0be1ac inset !important;
+  box-shadow: 0px 0px 0px 1px #0be1ac inset !important;
+  color: #0be1ac !important;
 }
 
 .ui.basic.primary.buttons .button:focus,
 .ui.basic.primary.button:focus {
   background: transparent !important;
-  -webkit-box-shadow: 0px 0px 0px 1px #0c68ff inset !important;
-  box-shadow: 0px 0px 0px 1px #0c68ff inset !important;
-  color: #1f72fc !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #01dca5 inset !important;
+  box-shadow: 0px 0px 0px 1px #01dca5 inset !important;
+  color: #0be1ac !important;
 }
 
 .ui.basic.primary.buttons .active.button,
 .ui.basic.primary.active.button {
   background: transparent !important;
-  -webkit-box-shadow: 0px 0px 0px 1px #1b71ff inset !important;
-  box-shadow: 0px 0px 0px 1px #1b71ff inset !important;
-  color: #1165f0 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #06e6ae inset !important;
+  box-shadow: 0px 0px 0px 1px #06e6ae inset !important;
+  color: #13c095 !important;
 }
 
 .ui.basic.primary.buttons .button:active,
 .ui.basic.primary.button:active {
-  -webkit-box-shadow: 0px 0px 0px 1px #1165f0 inset !important;
-  box-shadow: 0px 0px 0px 1px #1165f0 inset !important;
-  color: #1165f0 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #13c095 inset !important;
+  box-shadow: 0px 0px 0px 1px #13c095 inset !important;
+  color: #13c095 !important;
 }
 
 .ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
