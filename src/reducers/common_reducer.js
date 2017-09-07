@@ -15,14 +15,14 @@ const mainReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case FETCHING:
             return {...state, isFetching: true };
-    case NOT_FETCHING:
-        return {...state, isFetching: false };
-    case REDIRECT:
-        return {...state, isRedirected: true };
-    case NOT_REDIRECT:
-        return {...state, isRedirected: false };
-    }
-    return state;
-};
+        case NOT_FETCHING:
+            return {...state, isFetching: false };
+        case REDIRECT:
+            return {...state, isRedirected: true };
+        case NOT_REDIRECT:
+            return {...state, isRedirected: false };
+        }
+        return state;
+    };
 
 export default mainReducer;

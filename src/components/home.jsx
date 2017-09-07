@@ -68,7 +68,7 @@ const mapStateToProps = (state) => {
         errorMessage: state.search.error,
         query: state.search.query,
         results: state.search.results,
-        bars: state.search.bars,
+        bars: state.search.googleBars,
         goingBars: state.search.goingBars,
         goingTotals: state.search.goingTotals,
         isFetching: state.common.isFetching,

@@ -813,6 +813,19 @@ p.msg-text {
   transform: translate(-50%, -50%);
 }
 
+.ui.comments {
+  max-width: 100% !important;
+}
+
+.ui.comments .comment .author,
+.ui.comments .comment .text {
+  color: white !important;
+}
+
+.ui.comments .comment .metadata {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
 .ui.secondary.pointing.menu {
   border-bottom: 0 none !important;
 }

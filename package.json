@@ -1,43 +1,44 @@
 {
-    "name": "nightlife-coordination-frontend",
-    "version": "0.1.0",
-    "description": "Front End of Nightlife Coordination App - A Free Code Camp Dymamic Web Application Project.",
-    "private": true,
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject",
-        "heroku-postbuild": "npm install --only=dev && npm install && npm run build"
-    },
-    "keywords": [
-        "nightlife-coordination-app",
-        "react",
-        "client-side"
-    ],
-    "repository": "https://github.com/minhkashyu/nightlife-coordination-frontend.git",
-    "author": "minhkashyu",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/minhkashyu/nightlife-coordination-frontend/issues"
-    },
-    "homepage": "https://github.com/minhkashyu/nightlife-coordination-frontend#readme",
-    "dependencies": {
-        "axios": "^0.16.2",
-        "lodash": "^4.17.4",
-        "prop-types": "^15.5.10",
-        "react": "^15.6.1",
-        "react-cookie": "^2.0.8",
-        "react-dom": "^15.6.1",
-        "react-redux": "^5.0.6",
-        "react-router-dom": "^4.1.2",
-        "react-scripts": "1.0.11",
-        "redux": "^3.7.2",
-        "redux-form": "^7.0.3",
-        "redux-thunk": "^2.2.0",
-        "semantic-ui-react": "^0.71.5"
-    },
-    "devDependencies": {
-        "semantic-ui": "^2.2.13"
-    }
+  "name": "nightlife-coordination-frontend",
+  "version": "0.1.0",
+  "description": "Front End of Nightlife Coordination App - A Free Code Camp Dymamic Web Application Project.",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm install --only=dev && npm install && npm run build"
+  },
+  "keywords": [
+    "nightlife-coordination-app",
+    "react",
+    "client-side"
+  ],
+  "repository": "https://github.com/minhkashyu/nightlife-coordination-frontend.git",
+  "author": "minhkashyu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/minhkashyu/nightlife-coordination-frontend/issues"
+  },
+  "homepage": "https://github.com/minhkashyu/nightlife-coordination-frontend#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-cookie": "^2.0.8",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.1.2",
+    "react-scripts": "1.0.11",
+    "redux": "^3.7.2",
+    "redux-form": "^7.0.3",
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-react": "^0.71.5"
+  },
+  "devDependencies": {
+    "semantic-ui": "^2.2.13"
+  }
 }

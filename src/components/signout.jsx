@@ -30,6 +30,7 @@ class SignOut extends React.Component {
                 <SiteLoader />
                 <Confirm
                     open={this.state.open}
+                    header='Sign Out'
                     content='Are you sure you want to sign out of your account?'
                     cancelButton='Cancel'
                     confirmButton="Sign out now"
