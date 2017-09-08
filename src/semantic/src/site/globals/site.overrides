@@ -54,15 +54,6 @@ p.msg-text {
 
 .ui.comments {
   max-width: 100% !important;
-
-  .comment .author,
-  .comment .text {
-    color: white !important;
-  }
-
-  .comment .metadata {
-    color: rgba(255, 255, 255, .8) !important;
-  }
 }
 
 .ui.secondary.pointing.menu {
