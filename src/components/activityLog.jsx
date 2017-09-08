@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Container, Message, Header, Icon } from 'semantic-ui-react';
+import { Container, Segment, Message, Header, Icon } from 'semantic-ui-react';
 
 import { fetchMyBars, removeBar } from './../actions/search';
 import BarItemGroup from './template/barItemGroup.jsx';
@@ -34,8 +34,10 @@ class ActivityLog extends React.Component {
                     <Icon name='history' circular inverted color='teal' />
                     <Header.Content>Activity Log</Header.Content>
                 </Header>
-                {this.renderError()}
-                <BarItemGroup {...this.props} />
+                <Segment>
+                    {this.renderError()}
+                    <BarItemGroup {...this.props} />
+                </Segment>
             </Container>
         );
     }

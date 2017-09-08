@@ -36,7 +36,7 @@ const searchReducer = (state = INITIAL_STATE, action) => {
         case ADD_BAR:
             return {...state, bar: action.payload.bar, goingBars: action.payload.goingBars, goingTotals: action.payload.goingTotals, error: ''};
         case REMOVE_BAR:
-            return {...state, bar: {}, goingBars: action.payload.goingBars, goingTotals: action.payload.goingTotals, error: ''};
+            return {...state, bars: state.bars.filter(bar => bar._id !== action.barId), goingBars: action.payload.goingBars, goingTotals: action.payload.goingTotals, error: ''};
         case SEARCH_ERROR:
             return {...state, error: action.payload};
     }

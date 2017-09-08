@@ -1,8 +1,9 @@
+import axios from 'axios';
 import {
     errorHandler,
+    API_URL,
     getRequest,
-    postRequest,
-    deleteRequest
+    postRequest
     } from './index';
 import {
     FETCHING,
@@ -87,7 +88,21 @@ export const addBar = (placeId, name, address) => {
 
 export const removeBar = (barId) => {
     return (dispatch, getState, cookies) => {
-        let url = `/bars/${barId}`;
-        deleteRequest(REMOVE_BAR, SEARCH_ERROR, true, false, url, dispatch, cookies);
+        dispatch({ type: FETCHING });
+        let requestUrl = API_URL + `/bars/${barId}`;
+        let headers = { headers: { Authorization: cookies.get('token') } };
+
+        axios.delete(requestUrl, headers)
+            .then((response) => {
+                dispatch({
+                    type: REMOVE_BAR,
+                    payload: response.data,
+                    barId
+                });
+                dispatch({ type: NOT_FETCHING });
+            })
+            .catch((error) => {
+                errorHandler(dispatch, error, SEARCH_ERROR);
+            });
     };
 };
