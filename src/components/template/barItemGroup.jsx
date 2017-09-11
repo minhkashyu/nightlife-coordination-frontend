@@ -10,11 +10,15 @@ class BarItemGroup extends Component {
     };
 
     render() {
+        const { bars } = this.props;
         return (
             <Comment.Group>
-                {this.props.bars.map((bar, index) =>
+                {bars.length > 0 && bars.map((bar, index) =>
                     <BarItem key={index} bar={bar} {...this.props} />
                 )}
+                {bars.length <= 0 &&
+                    <p className='msg-text'>There is no acitivity log.</p>
+                }
             </Comment.Group>
         );
     }
