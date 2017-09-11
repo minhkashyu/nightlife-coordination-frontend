@@ -8,11 +8,22 @@ class SearchInput extends Component {
         selectResult: PropTypes.func.isRequired,
         loadGooglePlacesAutocomplete: PropTypes.func.isRequired,
         isFetching: PropTypes.bool.isRequired,
-        results: PropTypes.array.isRequired
+        results: PropTypes.array.isRequired,
+        query: PropTypes.string.isRequired
+    };
+
+    state = {
+        componentValue: ''
     };
 
     componentWillMount() {
-        this.resetComponent();
+        this.props.resetResults();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.query) {
+            this.setState({ componentValue: nextProps.query });
+        }
     }
 
     resetComponent = () => {

@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
-import { withCookies, Cookies } from 'react-cookie';
-import PropTypes from 'prop-types'
 import { Container, Menu, Icon } from 'semantic-ui-react';
 
 import { authenticatedTest } from './../../actions/auth';
@@ -13,10 +11,6 @@ class SiteMenu extends React.Component {
         super(props);
         this.props.authenticatedTest();
     }
-
-    static propTypes = {
-        cookies: PropTypes.instanceOf(Cookies).isRequired
-    };
 
     render() {
         const { isAuthenticated } = this.props;
@@ -61,4 +55,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default withCookies(withRouter(connect(mapStateToProps, { authenticatedTest })(SiteMenu)));
+export default withRouter(connect(mapStateToProps, { authenticatedTest })(SiteMenu));

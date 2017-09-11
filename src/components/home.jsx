@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withCookies, Cookies } from 'react-cookie';
 import { Container, Header, Divider, Icon, Grid, Message, Transition } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 import { resetResults, selectResult, loadGooglePlacesAutocomplete, fetchBars, addBar, removeBar } from './../actions/search';
 import { loginGithub } from './../actions/auth';
@@ -9,6 +11,21 @@ import SearchButton from './template/searchButton.jsx';
 import BarCardGroup from './template/barCardGroup.jsx';
 
 class Home extends React.Component {
+
+    static propTypes = {
+        cookies: PropTypes.instanceOf(Cookies).isRequired
+    };
+
+    componentWillMount() {
+        const { isAuthenticated, cookies, selectResult, fetchBars } = this.props;
+        if (isAuthenticated) {
+            const lastLocation = cookies.get('lastLocation');
+            if (lastLocation) {
+                selectResult(lastLocation);
+                fetchBars(lastLocation, isAuthenticated);
+            }
+        }
+    }
 
     renderError = () => {
         const { errorMessage } = this.props;
@@ -76,4 +93,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { resetResults, selectResult, loadGooglePlacesAutocomplete, fetchBars, addBar, removeBar, loginGithub })(Home);
+export default withCookies(connect(mapStateToProps, { resetResults, selectResult, loadGooglePlacesAutocomplete, fetchBars, addBar, removeBar, loginGithub })(Home));

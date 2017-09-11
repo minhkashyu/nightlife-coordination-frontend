@@ -26,7 +26,7 @@ const searchReducer = (state = INITIAL_STATE, action) => {
         case RECEIVE_RESULTS:
             return {...state, results: action.payload.results, error: ''};
         case RESET_RESULTS:
-            return {...state, results: [], query: '', error: ''};
+            return {...state, results: [], error: ''};
         case SELECT_RESULT:
             return {...state, query: action.payload.query, error: ''};
         case FETCH_BARS:

@@ -60,8 +60,18 @@ export const selectResult = (query) => {
     };
 };
 
+const trimStr = str => {
+    return str.replace(/^\s+|\s+$/gm,'');
+};
+
 export const fetchBars = (query, isAuthenticated) => {
     return (dispatch, getState, cookies) => {
+        query = trimStr(query);
+        if (query.length > 0) {
+            cookies.set('lastLocation', query, {
+                path: '/'
+            });
+        }
         let url = isAuthenticated ? `/places/loggedin/${query}` : `/places/${query}`;
         getRequest(FETCH_BARS, SEARCH_ERROR, isAuthenticated, false, url, dispatch, cookies);
     };
