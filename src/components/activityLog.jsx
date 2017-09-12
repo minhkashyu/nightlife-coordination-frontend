@@ -5,6 +5,7 @@ import { Container, Segment, Message, Header, Icon } from 'semantic-ui-react';
 
 import { fetchMyBars, removeBar } from './../actions/search';
 import BarItemGroup from './template/barItemGroup.jsx';
+import SiteLoader from './template/siteLoader.jsx';
 
 class ActivityLog extends React.Component {
 
@@ -16,6 +17,15 @@ class ActivityLog extends React.Component {
         const { errorMessage } = this.props;
         if (errorMessage) {
             return <Message error header='Error!' content={errorMessage} />;
+        }
+    };
+
+    renderLogs = () => {
+        if (this.props.isFetching) {
+            return <SiteLoader />;
+        }
+        else {
+            return <BarItemGroup {...this.props} />;
         }
     };
 
@@ -36,7 +46,7 @@ class ActivityLog extends React.Component {
                 </Header>
                 <Segment>
                     {this.renderError()}
-                    <BarItemGroup {...this.props} />
+                    {this.renderLogs()}
                 </Segment>
             </Container>
         );
