@@ -17,10 +17,10 @@ class Home extends React.Component {
     };
 
     componentWillMount() {
-        const { isAuthenticated, cookies, selectResult, fetchBars } = this.props;
+        const { isAuthenticated, cookies, selectResult, fetchBars, bars } = this.props;
         if (isAuthenticated) {
             const lastLocation = cookies.get('lastLocation');
-            if (lastLocation) {
+            if (bars.length < 1 && lastLocation) {
                 selectResult(lastLocation);
                 fetchBars(lastLocation, isAuthenticated);
             }
