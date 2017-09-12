@@ -17,7 +17,7 @@ class BarItemGroup extends Component {
                     <BarItem key={index} bar={bar} {...this.props} />
                 )}
                 {bars.length <= 0 &&
-                    <p className='msg-text'>There is no acitivity log.</p>
+                    <p className='msg-text-black'>There is no acitivity log.</p>
                 }
             </Comment.Group>
         );

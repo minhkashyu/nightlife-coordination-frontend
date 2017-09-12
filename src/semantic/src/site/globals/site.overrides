@@ -17,11 +17,19 @@ body {
   color: white;
 }
 
-p.msg-text {
+p.msg-text,
+p.msg-text-black {
   font-width: bold;
   font-size: 20px;
-  color: white;
   text-align: center;
+}
+
+p.msg-text {
+  color: white;
+}
+
+p.msg-text-black {
+  color: #1B1C1D;
 }
 
 .ui.card > .image,
