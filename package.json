@@ -8,6 +8,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "postinstall": "npm run build:clean",
     "heroku-postbuild": "npm run build"
   },
   "keywords": [
@@ -21,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/minhkashyu/nightlife-coordination-frontend/issues"
   },
-  "homepage": "https://github.com/minhkashyu/nightlife-coordination-frontend#readme",
+  "homepage": "https://mks-nightlife-coordination-app.herokuapp.com",
   "dependencies": {
     "axios": "^0.16.2",
     "lodash": "^4.17.4",
