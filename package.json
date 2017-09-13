@@ -7,8 +7,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "eject": "react-scripts eject"
   },
   "keywords": [
     "nightlife-coordination-app",
@@ -18,9 +17,6 @@
   "repository": "https://github.com/minhkashyu/nightlife-coordination-frontend.git",
   "author": "minhkashyu",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/minhkashyu/nightlife-coordination-frontend/issues"
-  },
   "homepage": "https://mks-nightlife-coordination-app.herokuapp.com",
   "dependencies": {
     "axios": "^0.16.2",
