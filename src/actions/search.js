@@ -67,13 +67,28 @@ const trimStr = str => {
 export const fetchBars = (query, isAuthenticated) => {
     return (dispatch, getState, cookies) => {
         query = trimStr(query);
+        let min = 3;
         if (query.length > 0) {
-            cookies.set('lastLocation', query, {
-                path: '/'
+            if (query.length < min) {
+                dispatch({
+                    type: SEARCH_ERROR,
+                    payload: `Search Keyword must be ${min} characters or more`
+                });
+            }
+            else {
+                cookies.set('lastLocation', query, {
+                    path: '/'
+                });
+                let url = isAuthenticated ? `/places/loggedin/${query}` : `/places/${query}`;
+                getRequest(FETCH_BARS, SEARCH_ERROR, isAuthenticated, false, url, dispatch, cookies);
+            }
+        }
+        else {
+            dispatch({
+                type: SEARCH_ERROR,
+                payload: 'Please enter a search keyword.'
             });
         }
-        let url = isAuthenticated ? `/places/loggedin/${query}` : `/places/${query}`;
-        getRequest(FETCH_BARS, SEARCH_ERROR, isAuthenticated, false, url, dispatch, cookies);
     };
 };
 
