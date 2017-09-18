@@ -12,17 +12,18 @@ class SearchInput extends Component {
         query: PropTypes.string.isRequired
     };
 
-    state = {
-        componentValue: ''
-    };
-
     componentWillMount() {
         this.props.resetResults();
+        this.state = { componentValue: '', flag: true };
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.query) {
-            this.setState({ componentValue: nextProps.query });
+        // check condition to set query to componentValue once
+        if (nextProps.query !== this.props.query && this.state.flag) {
+            this.setState({
+                componentValue: nextProps.query,
+                flag: false
+            });
         }
     }
 
@@ -38,9 +39,11 @@ class SearchInput extends Component {
 
     handleSearchChange = (e, { value }) => {
         this.setState({ componentValue: value });
-        if (value.length < 1) return this.resetComponent();
-        this.props.selectResult(value);
-        this.props.loadGooglePlacesAutocomplete(value);
+        setTimeout(() => {
+            if (value.length < 1) return this.resetComponent();
+            this.props.selectResult(value);
+            this.props.loadGooglePlacesAutocomplete(value);
+        }, 500);
     };
 
     render() {
