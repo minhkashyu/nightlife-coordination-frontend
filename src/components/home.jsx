@@ -39,7 +39,7 @@ class Home extends React.Component {
         return (
             <Container className='main-wrapper'>
                 <Header as='h1' textAlign='center' color='teal'>Nightlife Coordination App</Header>
-                <Header as='h4' textAlign='center' inverted color='grey'>A Freecodecamp Full-Statck Project using React/Redux, Semantic UI with Google Material theme, Express, Passport and MongoDB</Header>
+                <Header as='h4' textAlign='center' inverted color='grey'>A Freecodecamp Full-Stack Project using React/Redux, Semantic UI with Google Material theme, Express.js, Passport.js and MongoDB</Header>
                 <Divider section horizontal inverted>
                     <Icon.Group size='huge'>
                         <Icon loading inverted color='grey' size='big' name='circle notched' />
