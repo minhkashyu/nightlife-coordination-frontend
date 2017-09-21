@@ -26,7 +26,7 @@ class SearchButton extends Component {
             onClick={this.handleClick}
             >
                 <Button.Content visible>
-                    <Icon name='search' /> Search
+                    <Icon name='search' />
                 </Button.Content>
                 <Button.Content hidden>
                     <Icon color='teal' name='bar' />
