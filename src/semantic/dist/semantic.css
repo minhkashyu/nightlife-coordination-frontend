@@ -872,6 +872,14 @@ p.msg-text-black {
 .site-footer p a:hover {
   color: #1DE9B6;
 }
+
+@media only screen and (max-width: 767px) {
+  .ui.fluid.container {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
 /*!
  * # Semantic UI 2.2.13 - Button
  * http://github.com/semantic-org/semantic-ui/
