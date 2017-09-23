@@ -760,9 +760,15 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
          Site Overrides
 *******************************/
 
+html {
+  height: 100vh;
+  min-height: 100%;
+}
+
 body {
   background: #000000 url('/img/bar.jpg') no-repeat fixed center;
   background-size: cover;
+  min-height: 100%;
 }
 
 .main-wrapper {
