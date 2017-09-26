@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Search } from 'semantic-ui-react';
 import { PropTypes } from 'prop-types';
+import { Cookies } from 'react-cookie';
 
 class SearchInput extends Component {
     static propTypes = {
@@ -8,6 +9,8 @@ class SearchInput extends Component {
         selectResult: PropTypes.func.isRequired,
         loadGooglePlacesAutocomplete: PropTypes.func.isRequired,
         isFetching: PropTypes.bool.isRequired,
+        isAuthenticated: PropTypes.bool.isRequired,
+        cookies: PropTypes.instanceOf(Cookies).isRequired,
         results: PropTypes.array.isRequired,
         query: PropTypes.string.isRequired
     };
@@ -15,10 +18,15 @@ class SearchInput extends Component {
     componentWillMount() {
         this.props.resetResults();
         this.state = { componentValue: '', flag: true };
+        if (!this.props.isAuthenticated || (this.props.isAuthenticated && !this.props.cookies.get('lastLocation'))) {
+            this.setState({
+                flag: false
+            });
+        }
     }
 
     componentWillReceiveProps(nextProps) {
-        // check condition to set query to componentValue once
+        // if already logged in and having 'lastLocation' cookie, set query to componentValue once
         if (nextProps.query !== this.props.query && this.state.flag) {
             this.setState({
                 componentValue: nextProps.query,
