@@ -47,8 +47,8 @@ class SearchInput extends Component {
 
     handleSearchChange = (e, { value }) => {
         this.setState({ componentValue: value });
+        if (value.length < 1) return this.resetComponent();
         setTimeout(() => {
-            if (value.length < 1) return this.resetComponent();
             this.props.selectResult(value);
             this.props.loadGooglePlacesAutocomplete(value);
         }, 500);
