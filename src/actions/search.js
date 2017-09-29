@@ -79,7 +79,7 @@ export const fetchBars = (query, isAuthenticated) => {
                 cookies.set('lastLocation', query, {
                     path: '/'
                 });
-                let url = isAuthenticated ? `/places/loggedin/${query}` : `/places/${query}`;
+                let url = `/places/${query}`;
                 getRequest(FETCH_BARS, SEARCH_ERROR, isAuthenticated, false, url, dispatch, cookies);
             }
         }
