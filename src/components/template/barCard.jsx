@@ -22,7 +22,7 @@ class BarCard extends Component {
         if (!bar.photos || bar.photos.length <= 0) {
             return <Image src='/img/image-not-found.png' fluid label={lblGoing} />;
         }
-        let imgLink = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${bar.photos[0]['photo_reference']}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`;
+        let imgLink = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${bar.photos[0]['photo_reference']}&key=${process.env.REACT_APP_GOOGLE_API_KEY_BCKEND}`;
         return <Image src={imgLink} fluid label={lblGoing} />;
     };
 
